@@ -158,4 +158,8 @@ for (i in  1:length(teamnames)){
 }
 
 # Export Projections
+wager <- c("Over","Over","Over","Over","Over","Under","Over")
+season_win_totals <- season_win_totals %>% 
+  mutate(Over_Under = wager)
+
 write.csv(season_win_totals,paste0("D:/zz.Fun/Baseball/Baseball-Stuff/Projections/Win_Projections_",today,".csv"),row.names = F)
