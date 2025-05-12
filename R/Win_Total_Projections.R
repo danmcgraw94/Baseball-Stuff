@@ -16,15 +16,30 @@ teamnames <- c("Colorado Rockies", "Athletics", "Boston Red Sox", "Cincinnati Re
 win_totals <- c(60.5,70.5,84.5,78.5,103.5,77.5,100,80)
 ex_win_colors <- c("purple2","green2","red2","red1","blue2","red4","orange2","pink3")
 
+# All MLB
+non_MLB_teams <- c("Hanshin Tigers", "Tokyo Yomiuri Giants", "Memphis Redbirds", "Sultanes de Monterrey", "National League All-Stars")
+
+teamnames <- schedule_2025 %>%
+  filter(!teams_home_team_name %in% non_MLB_teams) %>%
+  pull(teams_home_team_name) %>%
+  unique()
+
+ex_win_colors <- c("blue2","navy","red2","blue1","blue3",
+                   "orangered2","orange4","orange1","orange2","yellow4",
+                   "navy","red3","blue","orange2","pink2",
+                   "red1","blue3","purple2","red","gold2",
+                   "red3","red4","yellow2","red","navy",
+                   "red3","green2","orange","cyan3","grey25")
+
 season_win_totals <- tibble(Team = teamnames,
-                            `Win Total Line` = win_totals,
+                            #`Win Total Line` = win_totals,
                             Expected_Wins = NA,
                             E95_Wins = NA,
                             E05_Wins = NA)
 
 for (i in  1:length(teamnames)){
   teamname = teamnames[i]
-  win_total = win_totals[i]
+  #win_total = win_totals[i]
   print(paste("Computing", teamname, "Expected Win Total"))
   
   # Overall Record & Runs for and against
@@ -133,7 +148,7 @@ for (i in  1:length(teamnames)){
   
   # Plot projections
   ggplot() + 
-    geom_hline(yintercept = win_total,linetype = "dashed")+
+    geom_hline(yintercept = 80,linetype = "dashed")+
     geom_line(data = team_record, aes(x = GameNum, y = Wins)) + 
     geom_line(data = team_record, aes(x = GameNum, y = Ex_wins), color = ex_win_colors[i]) + 
     geom_line(data = win_projection, aes(x = GameNum, y = median_exp), linetype = "dashed",color = "black") + 
@@ -149,6 +164,8 @@ for (i in  1:length(teamnames)){
              hjust = -0.1, color = ex_win_colors[i],size = 3) +
     labs(x = "Game Number", y = "Wins",
          title = paste0(teamname," Win Projection - ",today))
+  
+  dir.create(paste0("D:/zz.Fun/Baseball/Baseball-Stuff/ProjectionFigs/",teamname,"/"), showWarnings = FALSE, recursive = TRUE)
   ggsave(paste0("D:/zz.Fun/Baseball/Baseball-Stuff/ProjectionFigs/",teamname,"/2025_Win_Proj_Uncert - ", today, ".png"),height = 5, width = 7, dpi=300)
 
   # Save Team Projections
@@ -158,8 +175,8 @@ for (i in  1:length(teamnames)){
 }
 
 # Export Projections
-wager <- c("Over","Over","Over","Over","Over","Under","Over",NA)
-season_win_totals <- season_win_totals %>% 
-  mutate(Over_Under = wager)
+#wager <- c("Over","Over","Over","Over","Over","Under","Over",NA)
+#season_win_totals <- season_win_totals %>% 
+#  mutate(Over_Under = wager)
 
 write.csv(season_win_totals,paste0("D:/zz.Fun/Baseball/Baseball-Stuff/Projections/Win_Projections_",today,".csv"),row.names = F)
