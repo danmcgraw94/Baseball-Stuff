@@ -1,9 +1,31 @@
-"Team","Win Total Line","Expected_Wins","E95_Wins","E05_Wins","Over_Under"
-"Colorado Rockies",60.5,37.709,49.075,28.2262,"Over"
-"Athletics",70.5,71.9635,95.9341,49.33785,"Over"
-"Boston Red Sox",84.5,84.7855,100.08435,68.7268,"Over"
-"Cincinnati Reds",78.5,88.698,102.2245,74.16645,"Over"
-"Los Angeles Dodgers",103.5,104.05,124.4685,81.3132,"Over"
-"St. Louis Cardinals",77.5,90.3875,111.64485,68.33145,"Under"
-"New York Mets",100,102.739,121.20505,82.98525,"Over"
-"Miami Marlins",80,63.912,77.72465,51.68155,NA
+"Team","Expected_Wins","E95_Wins","E05_Wins"
+"Los Angeles Dodgers",104.05,124.4685,81.3132
+"New York Yankees",106.344,120.0601,89.9685
+"Boston Red Sox",84.7855,100.08435,68.7268
+"Chicago Cubs",94.9355,121.8711,63.5873
+"Kansas City Royals",78.8625,93.9358,64.60085
+"Arizona Diamondbacks",87.0635,99.99965,74.8746
+"San Diego Padres",110.3405,126.059,90.2812
+"Houston Astros",80.884,101.87715,60.6403
+"Baltimore Orioles",73.613,106.23495,42.0596
+"Tampa Bay Rays",85.9765,102.2844,68.07405
+"Detroit Tigers",98.464,117.91575,77.41535
+"Minnesota Twins",68.8535,97.2268,44.3684
+"Toronto Blue Jays",71.0685,95.5913,48.6147
+"New York Mets",102.739,121.20505,82.98525
+"Miami Marlins",63.912,77.72465,51.68155
+"Cincinnati Reds",88.698,102.2245,74.16645
+"Texas Rangers",71.5985,84.1464,58.04955
+"Colorado Rockies",37.709,49.075,28.2262
+"Los Angeles Angels",60.6075,90.9687,36.682
+"Milwaukee Brewers",70.857,104.316,40.18835
+"Washington Nationals",64.1175,78.0555,49.8741
+"St. Louis Cardinals",90.3875,111.64485,68.33145
+"Pittsburgh Pirates",57.6095,68.4323,46.4549
+"Philadelphia Phillies",95.4195,115.42515,72.06825
+"Atlanta Braves",67.1995,89.5038,47.4851
+"Cleveland Guardians",78.262,96.2008,61.1716
+"Athletics",71.9635,95.9341,49.33785
+"San Francisco Giants",102.11,112.675,91.84085
+"Seattle Mariners",78.553,105.60635,52.14825
+"Chicago White Sox",71.2015,109.63475,35.15815
