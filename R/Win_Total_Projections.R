@@ -12,9 +12,9 @@ library(fitdistrplus)
 schedule_2025 <- mlb_schedule(season = 2025)
 #unique(schedule_2025$teams_home_team_name)
 
-teamnames <- c("Colorado Rockies", "Athletics", "Boston Red Sox", "Cincinnati Reds", "Los Angeles Dodgers" ,"St. Louis Cardinals", "New York Mets")
-win_totals <- c(60.5,70.5,84.5,78.5,103.5,77.5,100)
-ex_win_colors <- c("purple2","green2","red2","red1","blue2","red4","orange2")
+teamnames <- c("Colorado Rockies", "Athletics", "Boston Red Sox", "Cincinnati Reds", "Los Angeles Dodgers" ,"St. Louis Cardinals", "New York Mets","Miami Marlins")
+win_totals <- c(60.5,70.5,84.5,78.5,103.5,77.5,100,80)
+ex_win_colors <- c("purple2","green2","red2","red1","blue2","red4","orange2","pink3")
 
 season_win_totals <- tibble(Team = teamnames,
                             `Win Total Line` = win_totals,
@@ -25,7 +25,7 @@ season_win_totals <- tibble(Team = teamnames,
 for (i in  1:length(teamnames)){
   teamname = teamnames[i]
   win_total = win_totals[i]
-  print(pate("Computing", teamname, "Expected Win Total"))
+  print(paste("Computing", teamname, "Expected Win Total"))
   
   # Overall Record & Runs for and against
   team_record <- schedule_2025 %>%
@@ -158,7 +158,7 @@ for (i in  1:length(teamnames)){
 }
 
 # Export Projections
-wager <- c("Over","Over","Over","Over","Over","Under","Over")
+wager <- c("Over","Over","Over","Over","Over","Under","Over",NA)
 season_win_totals <- season_win_totals %>% 
   mutate(Over_Under = wager)
 
