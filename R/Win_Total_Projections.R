@@ -181,6 +181,10 @@ for (i in  1:length(teamnames)){
 #  mutate(Over_Under = wager)
 
 season_win_totals <- season_win_totals %>% 
+  mutate(Expected_Wins = round(Expected_Wins,1),
+         E95_Wins = round(E95_Wins,1),
+         E05_Wins = round(E05_Wins,1)) %>% 
   arrange(desc(Expected_Wins))
 
 write.csv(season_win_totals,paste0("D:/zz.Fun/Baseball/Baseball-Stuff/Projections/Win_Projections_",today,".csv"),row.names = F)
+write_xlsx(season_win_totals,paste0("D:/zz.Fun/Baseball/Baseball-Stuff/Projections/Win_Projections_",today,".xlsx"))
