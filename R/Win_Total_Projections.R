@@ -7,6 +7,7 @@ library(tidyverse)
 library(lubridate)
 library(zoo)
 library(fitdistrplus)
+library(writexl)
 
 # Get all MLB games for 2025
 schedule_2025 <- mlb_schedule(season = 2025)
