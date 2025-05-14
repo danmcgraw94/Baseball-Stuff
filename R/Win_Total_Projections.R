@@ -42,6 +42,7 @@ for (i in  1:length(teamnames)){
   teamname = teamnames[i]
   #win_total = win_totals[i]
   print(paste("Computing", teamname, "Expected Win Total"))
+  print(paste("Team", i, "of", length(teamnames)))
   
   # Overall Record & Runs for and against
   team_record <- schedule_2025 %>%
