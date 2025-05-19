@@ -9,6 +9,10 @@ library(zoo)
 library(fitdistrplus)
 library(writexl)
 
+# Day of week - Only plot on M & F (which is 2 or 6)
+weekday_num <- wday(Sys.Date())
+weekday <- as.character(wday(Sys.Date(),label = TRUE))
+
 # Get all MLB games for 2025
 schedule_2025 <- mlb_schedule(season = 2025)
 #unique(schedule_2025$teams_home_team_name)
@@ -147,32 +151,38 @@ for (i in  1:length(teamnames)){
       p95_exp = quantile(Ex_win, 0.95),
       .groups = "drop")
   
-  # Plot projections
-  ggplot() + 
-    geom_hline(yintercept = 80,linetype = "dashed")+
-    geom_line(data = team_record, aes(x = GameNum, y = Wins)) + 
-    geom_line(data = team_record, aes(x = GameNum, y = Ex_wins), color = ex_win_colors[i]) + 
-    geom_line(data = win_projection, aes(x = GameNum, y = median_exp), linetype = "dashed",color = "black") + 
-    geom_ribbon(data = win_projection,aes(x = GameNum, ymin = p05_exp, ymax = p95_exp),fill = "grey50", alpha = 0.15) +
-    scale_y_continuous(breaks = seq(0,150,10), minor_breaks = seq(0,150,2)) + 
-    scale_x_continuous(breaks = seq(0,170,10),
-                       minor_breaks = seq(0,170,5)) +
-    coord_cartesian(ylim = c(0,130))+
-    theme_bw() +
-    annotate("text", x = max(team_record$GameNum) - 10,
-             y = tail(team_record$Ex_wins, 1)+10, 
-             label = "(Rolling-Pythagorean Win Projection)", 
-             hjust = -0.1, color = ex_win_colors[i],size = 3) +
-    labs(x = "Game Number", y = "Wins",
-         title = paste0(teamname," Win Projection - ",today))
-  
-  dir.create(paste0("D:/zz.Fun/Baseball/Baseball-Stuff/ProjectionFigs/",teamname,"/"), showWarnings = FALSE, recursive = TRUE)
-  ggsave(paste0("D:/zz.Fun/Baseball/Baseball-Stuff/ProjectionFigs/",teamname,"/2025_Win_Proj_Uncert - ", today, ".png"),height = 5, width = 7, dpi=300)
+  # Plot projections - only on weekdays 2 or 6 (Monday or Friday)
+  if (weekday_num == 2 | weekday_num == 6){
+    ggplot() + 
+      geom_hline(yintercept = 80,linetype = "dashed")+
+      geom_line(data = team_record, aes(x = GameNum, y = Wins)) + 
+      geom_line(data = team_record, aes(x = GameNum, y = Ex_wins), color = ex_win_colors[i]) + 
+      geom_line(data = win_projection, aes(x = GameNum, y = median_exp), linetype = "dashed",color = "black") + 
+      geom_ribbon(data = win_projection,aes(x = GameNum, ymin = p05_exp, ymax = p95_exp),fill = "grey50", alpha = 0.15) +
+      scale_y_continuous(breaks = seq(0,150,10), minor_breaks = seq(0,150,2)) + 
+      scale_x_continuous(breaks = seq(0,170,10),
+                         minor_breaks = seq(0,170,5)) +
+      coord_cartesian(ylim = c(0,130))+
+      theme_bw() +
+      annotate("text", x = max(team_record$GameNum) - 10,
+               y = tail(team_record$Ex_wins, 1)+10, 
+               label = "(Rolling-Pythagorean Win Projection)", 
+               hjust = -0.1, color = ex_win_colors[i],size = 3) +
+      labs(x = "Game Number", y = "Wins",
+           title = paste0(teamname," Win Projection - ",today))
+    
+    dir.create(paste0("D:/zz.Fun/Baseball/Baseball-Stuff/ProjectionFigs/",teamname,"/"), showWarnings = FALSE, recursive = TRUE)
+    ggsave(paste0("D:/zz.Fun/Baseball/Baseball-Stuff/ProjectionFigs/",teamname,"/2025_Win_Proj_Uncert - ", today, ".png"),height = 5, width = 7, dpi=300)
+  }else{
+    print("No-plotting today")
+  }
 
   # Save Team Projections
   season_win_totals$Expected_Wins[i] <- tail(win_projection$median_exp, n = 1)
   season_win_totals$E95_Wins[i] <- tail(win_projection$p95_exp, n = 1)
   season_win_totals$E05_Wins[i] <- tail(win_projection$p05_exp, n = 1)
+  season_win_totals$Current_Wins[i] <- tail(team_record$Wins, n = 1)
+  season_win_totals$Current_Losses[i] <- tail(team_record$Losses, n = 1)
 }
 
 # Export Projections
@@ -187,4 +197,5 @@ season_win_totals <- season_win_totals %>%
   arrange(desc(Expected_Wins))
 
 write.csv(season_win_totals,paste0("D:/zz.Fun/Baseball/Baseball-Stuff/Projections/Win_Projections_",today,".csv"),row.names = F)
+write.csv(season_win_totals,"D:/zz.Fun/Baseball/Baseball-Stuff/Projections/Win_Projections_.csv",row.names = F)
 write_xlsx(season_win_totals,paste0("D:/zz.Fun/Baseball/Baseball-Stuff/Projections/Win_Projections_",today,".xlsx"))
