@@ -194,6 +194,7 @@ season_win_totals <- season_win_totals %>%
   mutate(Expected_Wins = round(Expected_Wins,1),
          E95_Wins = round(E95_Wins,1),
          E05_Wins = round(E05_Wins,1)) %>% 
+  mutate(Wins_Needed = ceiling(Expected_Wins) - Current_Wins)
   arrange(desc(Expected_Wins))
 
 write.csv(season_win_totals,paste0("D:/zz.Fun/Baseball/Baseball-Stuff/Projections/Win_Projections_",today,".csv"),row.names = F)
