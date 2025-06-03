@@ -11,7 +11,7 @@ library(writexl)
 
 # Day of week - Only plot on M & F (which is 2 or 6)
 weekday_num <- wday(Sys.Date())
-weekday <- as.character(wday(Sys.Date(),label = TRUE))
+weekday <- as.character(wday(Sys.Date()))
 
 # Get all MLB games for 2025
 schedule_2025 <- mlb_schedule(season = 2025)
