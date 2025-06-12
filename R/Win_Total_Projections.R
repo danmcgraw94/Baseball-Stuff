@@ -153,6 +153,7 @@ for (i in  1:length(teamnames)){
       .groups = "drop")
   
   # Plot projections - only on weekdays 2 or 6 (Monday or Friday)
+  #weekday_num = 2
   if (weekday_num == 2 | weekday_num == 6){
     ggplot() + 
       geom_hline(yintercept = 80,linetype = "dashed")+
