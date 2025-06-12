@@ -1,31 +1,31 @@
-"Team","Expected_Wins","E95_Wins","E05_Wins","Current_Wins","Current_Losses","Wins_Needed"
-"New York Yankees",106,115.3,96.5,41,25,65
-"New York Mets",104.4,114.1,93.2,44,24,61
-"Detroit Tigers",102.5,114.7,89.5,44,25,59
-"Los Angeles Dodgers",99.8,112.8,86.6,41,28,59
-"Chicago Cubs",99,114.7,80,41,27,58
-"San Diego Padres",98.6,113.1,82.5,38,29,61
-"San Francisco Giants",98.5,105.5,91.1,40,28,59
-"Philadelphia Phillies",92.7,104.6,80.3,39,29,54
-"St. Louis Cardinals",88.9,101.3,76.1,36,32,53
-"Cincinnati Reds",88.5,96.3,79.5,36,34,53
-"Tampa Bay Rays",87.5,97.7,77.1,36,32,52
-"Houston Astros",86.1,98.8,73.6,37,30,50
-"Arizona Diamondbacks",83.2,91.9,75.4,34,35,50
-"Boston Red Sox",82.5,91.3,72.9,34,36,49
-"Minnesota Twins",80,100.8,61.4,37,31,43
-"Toronto Blue Jays",79.6,94.8,65.4,38,30,42
-"Seattle Mariners",79,95.9,62.4,33,34,46
-"Milwaukee Brewers",78.5,98,58.2,36,33,43
-"Kansas City Royals",78.2,87.6,69.2,34,34,45
-"Cleveland Guardians",78.1,88.6,68.3,35,33,44
-"Texas Rangers",74.5,83.6,65.5,32,36,43
-"Atlanta Braves",71,87.5,55.3,29,38,42
-"Los Angeles Angels",69.3,86.1,53.8,33,34,37
-"Washington Nationals",67.7,77.6,58.2,30,37,38
-"Baltimore Orioles",66.4,90.8,46.8,27,39,40
-"Chicago White Sox",64.7,88,43.3,23,45,42
-"Miami Marlins",61.8,69.7,54.3,25,41,37
-"Athletics",61.8,78,48.7,26,44,36
-"Pittsburgh Pirates",61.7,68.3,54.6,28,41,34
-"Colorado Rockies",34.7,41.9,28,12,55,23
+Team,Expected_Wins,E95_Wins,E05_Wins,Current_Wins,Current_Losses,Wins_Needed
+New York Yankees,106,115.3,96.5,41,25,65
+New York Mets,104.4,114.1,93.2,44,24,61
+Detroit Tigers,102.5,114.7,89.5,44,25,59
+Los Angeles Dodgers,99.8,112.8,86.6,41,28,59
+Chicago Cubs,99,114.7,80,41,27,58
+San Diego Padres,98.6,113.1,82.5,38,29,61
+San Francisco Giants,98.5,105.5,91.1,40,28,59
+Philadelphia Phillies,92.7,104.6,80.3,39,29,54
+St. Louis Cardinals,88.9,101.3,76.1,36,32,53
+Cincinnati Reds,88.5,96.3,79.5,36,34,53
+Tampa Bay Rays,87.5,97.7,77.1,36,32,52
+Houston Astros,86.1,98.8,73.6,37,30,50
+Arizona Diamondbacks,83.2,91.9,75.4,34,35,50
+Boston Red Sox,82.5,91.3,72.9,34,36,49
+Minnesota Twins,80,100.8,61.4,37,31,43
+Toronto Blue Jays,79.6,94.8,65.4,38,30,42
+Seattle Mariners,79,95.9,62.4,33,34,46
+Milwaukee Brewers,78.5,98,58.2,36,33,43
+Kansas City Royals,78.2,87.6,69.2,34,34,45
+Cleveland Guardians,78.1,88.6,68.3,35,33,44
+Texas Rangers,74.5,83.6,65.5,32,36,43
+Atlanta Braves,71,87.5,55.3,29,38,42
+Los Angeles Angels,69.3,86.1,53.8,33,34,37
+Washington Nationals,67.7,77.6,58.2,30,37,38
+Baltimore Orioles,66.4,90.8,46.8,27,39,40
+Chicago White Sox,64.7,88,43.3,23,45,42
+Miami Marlins,61.8,69.7,54.3,25,41,37
+Athletics,61.8,78,48.7,26,44,36
+Pittsburgh Pirates,61.7,68.3,54.6,28,41,34
+Colorado Rockies,34.7,41.9,28,12,55,23
