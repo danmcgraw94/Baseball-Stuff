@@ -22,13 +22,21 @@ teamnames <- c("Colorado Rockies", "Athletics", "Boston Red Sox", "Cincinnati Re
 win_totals <- c(60.5,70.5,84.5,78.5,103.5,77.5,100,80)
 ex_win_colors <- c("purple2","green2","red2","red1","blue2","red4","orange2","pink3")
 
-# All MLB
-non_MLB_teams <- c("Hanshin Tigers", "Tokyo Yomiuri Giants", "Memphis Redbirds", "Sultanes de Monterrey", "National League All-Stars")
+teamnames <- c("Los Angeles Dodgers","New York Yankees","Boston Red Sox", "Chicago Cubs", 
+               "Kansas City Royals", "Arizona Diamondbacks", "San Diego Padres","Houston Astros",
+               "Baltimore Orioles","Tampa Bay Rays", "Detroit Tigers","Minnesota Twins",
+               "Toronto Blue Jays","New York Mets","Miami Marlins", "Cincinnati Reds","Texas Rangers",
+               "Colorado Rockies", "Los Angeles Angels","Milwaukee Brewers","Washington Nationals",
+               "St. Louis Cardinals","Pittsburgh Pirates", "Philadelphia Phillies","Atlanta Braves", 
+               "Cleveland Guardians","Athletics", "San Francisco Giants","Seattle Mariners", "Chicago White Sox")
 
-teamnames <- schedule_2025 %>%
-  filter(!teams_home_team_name %in% non_MLB_teams) %>%
-  pull(teams_home_team_name) %>%
-  unique()
+# All MLB
+# non_MLB_teams <- c("Hanshin Tigers", "Tokyo Yomiuri Giants", "Memphis Redbirds", "Sultanes de Monterrey", "National League All-Stars")
+# 
+# teamnames <- schedule_2025 %>%
+#   filter(!teams_home_team_name %in% non_MLB_teams) %>%
+#   pull(teams_home_team_name) %>%
+#   unique()
 
 ex_win_colors <- c("blue2","navy","red2","blue1","blue3",
                    "orangered2","orange4","orange1","orange2","yellow4",
