@@ -30,6 +30,7 @@ teamnames <- c("Los Angeles Dodgers","New York Yankees","Boston Red Sox", "Chica
                "St. Louis Cardinals","Pittsburgh Pirates", "Philadelphia Phillies","Atlanta Braves", 
                "Cleveland Guardians","Athletics", "San Francisco Giants","Seattle Mariners", "Chicago White Sox")
 
+
 # All MLB
 # non_MLB_teams <- c("Hanshin Tigers", "Tokyo Yomiuri Giants", "Memphis Redbirds", "Sultanes de Monterrey", "National League All-Stars")
 # 
